@@ -1,0 +1,17 @@
+services:
+
+  db:
+    container_name: pg_container
+    image: postgres:alpine3.15
+    restart: always
+    environment:
+      POSTGRES_USER: cloud
+      POSTGRES_DB: cloudynight
+      POSTGRES_PASSWORD: PSQLPASSWORD
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data/
+
+volumes:
+  pg_data:

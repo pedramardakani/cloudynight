@@ -26,12 +26,29 @@ Please that ``cloudynight`` only utilizes the more efficient ``lightgbm``
 classifier. The ResNet code is also included in ``scripts/`` for the sake
 completeness.
 
-Requirements
-------------
+Requirements (modern)
+---------------------
 
-``cloudynight`` requires the following Python modules to be available
-(version numbers in parentheses signify the version numbers that were used in
-building this code):
+The newer ``cloudynight`` uses the ``requirements-new.txt`` file to install
+all the packages you need via:
+
+
+``$ python3 -m venv .venv``
+
+``$ source .venv/bin/activate``
+
+``(.venv) $ python3 -m pip install wheel``
+
+``(.venv) $ python3 -m pip install -r requirements-new.txt``
+
+
+
+Requirements (legacy)
+---------------------
+
+The legacy ``cloudynight`` required the following Python modules to be
+available (version numbers in parentheses signify the version numbers that
+were used in building the code):
 
 * numpy (1.16.3)
 * scipy (1.2.1)
@@ -39,9 +56,9 @@ building this code):
 * pandas (0.25.3)
 * sep (1.0.3)
 * astropy (4.0)
-* scikit-image (0.15.0)    
+* scikit-image (0.15.0)
 * lightgbm (2.2.3)
-* scikit-learn (0.22.1)  
+* scikit-learn (0.22.1)
 * astroplan (0.4)
 
 The use of the ResNet implementation requires additional modules:
@@ -49,16 +66,17 @@ The use of the ResNet implementation requires additional modules:
 * pytorch (1.3.1)
 * tqdm (4.36.1)
 
-  
+
 Use
 ---
 
 ``cloudynight`` contains all the parts necessary to build an automated cloud
 detector, but it is not intended as a plug-and-play software.
 
-First, install the ``cloudynight`` module:
+First, update the ``self.DIR_BASE`` in ``cloudynight/__init__.py`` and then
+install the module via:
 
-  >>> python setup.py install
+  ``(.venv) $ python3 setup.py install``
 
 and run the provided example scripts to get familiar with the module.
 
@@ -98,5 +116,3 @@ License
 -------
 
 This software is distributed under a `3-clause BSD license <LICENSE.rst>`_.
-
-
