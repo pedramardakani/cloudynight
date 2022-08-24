@@ -10,9 +10,9 @@ The following example scripts are included here:
 * ``subregions.py``: create subregions and plot their locations on the sky
 * ``extract_features.py``: read in images, mask them, and extract
   per-subregion image features
-* ``lightgbm.py``: load a feature file, train the `lightGBM` model and
+* ``model_lightgbm.py``: load a feature file, train the `lightGBM` model and
   predict cloud coverage for individual subregions
-* ``resnet.py``: train the ResNet model and derive accuracy scores
+* ``model_resnet.py``: train the ResNet model and derive accuracy scores
 
 All these example scripts are intended to work with the example data
 provided and should be run in this order.
