@@ -40,7 +40,7 @@ for subi in range(len(cam.subregions)):
 # # !!! this part of the script will only work if the webapp is setup properly
 #
 # # setup server credentials
-url = cloudynight.conf.DB_URL+'data/Subregion/' # for use with test server
+url = 'http://127.0.0.1:8000/data/Subregion/' # for use with test server
 user = 'writer'
 pwd = 'writecloud' # add password here
 

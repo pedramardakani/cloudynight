@@ -31,7 +31,7 @@ cam.generate_subregions()
 
 # use wrapper to process all images
 # `no_upload=True` can be removed if the webapp is setup properly
-cam.process_and_upload_data(no_upload=True)
+cam.process_and_upload_data(no_upload=False)
 
 # plot background median values per subregion for all images
 for img in cam.imgdata:

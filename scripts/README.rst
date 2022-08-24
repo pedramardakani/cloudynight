@@ -7,7 +7,8 @@ some idea on how to use ``cloudynight`` functionality.
 The following example scripts are included here:
 
 * ``generate_mask.py``: generate an image mask to mask the local horizon
-* ``subregions.py``: create subregions and plot their locations on the sky
+* ``populate_subregions.py``: create subregions and plot their locations
+  on the sky
 * ``extract_features.py``: read in images, mask them, and extract
   per-subregion image features
 * ``model_lightgbm.py``: load a feature file, train the `lightGBM` model and

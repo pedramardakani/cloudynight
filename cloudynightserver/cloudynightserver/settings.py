@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cloudynight',
         'USER': 'cloud',
-        'PASSWORD': 'cloud',
+        'PASSWORD': 'PSQLPASSWORD',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -131,5 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom media variable
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/mommermi/lowell/projects/cloudynight_paper/cloudynight/workbench/'
+MEDIA_ROOT = '/home/pedram/w/cloudynight/workbench/'
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
