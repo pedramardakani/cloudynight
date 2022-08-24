@@ -40,34 +40,34 @@ for subi in range(len(cam.subregions)):
 # # !!! this part of the script will only work if the webapp is setup properly
 #
 # # setup server credentials
-# url = conf.HOST_NAME+conf.HOST_BASEDIR+'data/Subregion/' # for use with test server
-# user = 'writer'
-# pwd = '' # add password here
-#
-# session = requests.Session()
-# post_headers = {'Content-Type': 'application/json'}
-#
-# # upload subregion information to webapp database (required for use of the
-# # webapp)
-# for subi in range(len(cam.subregions)):
-#     print('uploading subregion', subi)
-#
-#     # scale polygon coordinates to image size used in webapp
-#     # factors at the end are image sizes used in the webapp
-#     x = cam.polygons[subi][0]/cam.maskdata.data.shape[0]*460
-#     y = cam.polygons[subi][1]/cam.maskdata.data.shape[1]*465
-#
-#     # rearrange polygon vertices
-#     v = np.empty(len(x)+len(y), dtype=np.int)
-#     v[0::2] = x
-#     v[1::2] = y
-#     post_request = session.post(
-#         url, headers=post_headers, auth=(user, pwd),
-#         json={'id': subi,
-#               'polygon_xy': ",".join([str(int(val)) for val in v]),
-#               'polygon_x': x.astype(np.int).tolist(),
-#               'polygon_y': y.astype(np.int).tolist()})
-#
-#     if not ((post_request.status_code == requests.codes.ok) or
-#             (post_request.status_code == requests.codes.created)):
-#         print(post_request.text, post_request.status_code)
+url = cloudynight.conf.DB_URL+'data/Subregion/' # for use with test server
+user = 'writer'
+pwd = 'writecloud' # add password here
+
+session = requests.Session()
+post_headers = {'Content-Type': 'application/json'}
+
+# upload subregion information to webapp database (required for use of the
+# webapp)
+for subi in range(len(cam.subregions)):
+    print('uploading subregion', subi)
+
+    # scale polygon coordinates to image size used in webapp
+    # factors at the end are image sizes used in the webapp
+    x = cam.polygons[subi][0]/cam.maskdata.data.shape[0]*460
+    y = cam.polygons[subi][1]/cam.maskdata.data.shape[1]*465
+
+    # rearrange polygon vertices
+    v = np.empty(len(x)+len(y), dtype=np.int)
+    v[0::2] = x
+    v[1::2] = y
+    post_request = session.post(
+        url, headers=post_headers, auth=(user, pwd),
+        json={'id': subi,
+              'polygon_xy': ",".join([str(int(val)) for val in v]),
+              'polygon_x': x.astype(np.int).tolist(),
+              'polygon_y': y.astype(np.int).tolist()})
+
+    if not ((post_request.status_code == requests.codes.ok) or
+            (post_request.status_code == requests.codes.created)):
+        print(post_request.text, post_request.status_code)
